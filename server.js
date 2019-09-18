@@ -5,8 +5,18 @@ const config = require('./dbconfig/database');
 const PORT = process.env.PORT || 5000;
 const app = express();
 
+// Init Middleware
+app.use(express.json({extended: false}))
+
 //app get
 app.get('/', (req, res)=>res.send('API running'))
+
+//define routes
+app.use('/api/users', require('./routes/api/users'))
+app.use('/api/auth', require('./routes/api/auth'))
+app.use('/api/profile', require('./routes/api/profile'))
+app.use('/api/posts', require('./routes/api/posts'))
+
 
 // Mongoose connection
 const db = mongoose.connection;
