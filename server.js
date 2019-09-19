@@ -6,10 +6,12 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 // Init Middleware
-app.use(express.json({extended: false}))
+app.use(express.json({
+    extended: false
+}))
 
 //app get
-app.get('/', (req, res)=>res.send('API running'))
+app.get('/', (req, res) => res.send('API running'))
 
 //define routes
 app.use('/api/users', require('./routes/api/users'))
@@ -22,7 +24,12 @@ app.use('/api/posts', require('./routes/api/posts'))
 const db = mongoose.connection;
 
 //mongoose connect
-mongoose.connect(process.env.MONGODB_URI || config.database, { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false} );
+mongoose.connect(process.env.MONGODB_URI || config.database, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useCreateIndex: true
+});
 
 // Check connection
 db.once('open', function () {
@@ -38,5 +45,5 @@ db.on('error', function (err) {
 
 //app listen
 app.listen(PORT, (req, res) => {
-  console.log(`Server is listening on port: ${PORT}`)
+    console.log(`Server is listening on port: ${PORT}`)
 })
