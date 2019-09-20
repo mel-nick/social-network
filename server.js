@@ -19,7 +19,6 @@ app.use('/api/auth', require('./routes/api/auth'))
 app.use('/api/profile', require('./routes/api/profile'))
 app.use('/api/posts', require('./routes/api/posts'))
 
-
 // Mongoose connection
 const db = mongoose.connection;
 
@@ -40,8 +39,6 @@ db.once('open', function () {
 db.on('error', function (err) {
     console.error(err);
 });
-
-
 
 //app listen
 app.listen(PORT, (req, res) => {
