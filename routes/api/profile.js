@@ -125,7 +125,7 @@ router.get('/', async (req, res) => {
 
 //@route GET api/profile/user/:user_id
 //@desc GET profile by user_id
-//@ccess publick
+//@access public
 router.get('/user/:user_id', async (req, res) => {
     try {
         const profile = await Profile.findOne({
@@ -148,7 +148,7 @@ router.get('/user/:user_id', async (req, res) => {
 
 //@route DELETE api/profile
 //@desc Delete profile, user and posts
-//@ccess Privat
+//@access Private
 router.delete('/', auth, async (req, res) => {
     try {
         // remove user's post
@@ -175,7 +175,7 @@ router.delete('/', auth, async (req, res) => {
 
 //@route PUT api/profile/experience
 //@desc Add profile experience
-//@ccess Private
+//@access Private
 router.put('/experience', [auth, [
     check('title', 'Title required').not().isEmpty(),
     check('company', 'Company required').not().isEmpty(),
@@ -223,7 +223,7 @@ router.put('/experience', [auth, [
 
 //@route DELETE api/profile/experience/:exp_id
 //@desc Delete profile experience from profile
-//@ccess Private
+//@access Private
 router.delete('/experience/:exp_id', auth, async (req, res) => {
     try {
         const profile = await Profile.findOne({
@@ -245,7 +245,7 @@ router.delete('/experience/:exp_id', auth, async (req, res) => {
 
 //@route PUT api/profile/education
 //@desc Add profile education
-//@ccess Private
+//@access Private
 router.put('/education', [auth, [
     check('school', 'School required').not().isEmpty(),
     check('degree', 'Degree required').not().isEmpty(),
@@ -294,7 +294,7 @@ router.put('/education', [auth, [
 
 //@route DELETE api/profile/education/:edu_id
 //@desc Delete profile education from profile
-//@ccess Private
+//@access Private
 router.delete('/education/:edu_id', auth, async (req, res) => {
     try {
         const profile = await Profile.findOne({
@@ -316,7 +316,7 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
 
 //@route GET api/profile/github/:username
 //@desc Get user repos from GitHub
-//@ccess Public
+//@access Public
 
 router.get('/github/:username', (req, res) => {
     try {
