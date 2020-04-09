@@ -11,6 +11,7 @@ const {
 
 const Profile = require('../../dbmodels/Profile')
 const User = require('../../dbmodels/User')
+const Post = require('../../dbmodels/Post')
 
 //@route GET api/profile/me
 //@desc get current users profile
@@ -82,7 +83,7 @@ router.post('/', [auth, [
     if (facebook) profileFields.social.facebook = facebook;
     if (twitter) profileFields.social.twitter = twitter;
     if (instagram) profileFields.social.instagram = instagram;
-    if (linkedin) profileFields.social.youtube = linkedin;
+    if (linkedin) profileFields.social.linkedin = linkedin;
 
     try {
         let profile = await Profile.findOne({
@@ -152,9 +153,7 @@ router.get('/user/:user_id', async (req, res) => {
 router.delete('/', auth, async (req, res) => {
     try {
         // remove user's post
-
-
-
+        await Post.deleteMany({ user: req.user.id })
 
         // Remove profile    
         await Profile.findOneAndRemove({
