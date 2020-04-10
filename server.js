@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const config = require('./dbconfig/database');
 require('dotenv').config()
 
 const PORT = process.env.PORT || 5000;
@@ -24,7 +23,7 @@ app.use('/api/posts', require('./routes/api/posts'))
 const db = mongoose.connection;
 
 //mongoose connect
-mongoose.connect(process.env.MONGODB_URI || config.database, {
+mongoose.connect(process.env.MONGODB_URI, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useFindAndModify: false,
