@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Moment from 'react-moment'
 
 const ProfileExperience = ({experience:{
@@ -21,9 +20,5 @@ const ProfileExperience = ({experience:{
         </div>
     )
 }
-
-// ProfileExperience.propTypes = {
-//     experience:PropTypes.array.isRequired
-// }
 
 export default ProfileExperience

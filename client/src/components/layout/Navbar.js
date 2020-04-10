@@ -4,24 +4,37 @@ import {connect} from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { logout } from '../../actions/auth';
 
-const Navbar = ({auth:{ isAuthenticated, loading}, logout }) => {
+const Navbar = ({auth:{ user, isAuthenticated, loading}, logout }) => {
   const authLinks = (
     <ul>
         <li>
             <Link to="/profiles">Developers</Link>
         </li>
-          <li>
+        <li>
+            <Link to="/posts">Posts</Link>
+        </li>
+        <li>
             <Link to="/dashboard">
               <i className="fas fa-user"></i>{' '}
               <span className="hide-sm">Dashboard</span>
             </Link>
-          </li>
-          <li>
+        </li>
+        <li>
+          {!loading && isAuthenticated && user!==null && 
+            <Link to={`/profile/${user._id}`}>
+                <img
+                  className="round-img nav-user-image"
+                  src={user.avatar}
+                  alt="avatar"
+                />
+          </Link>}
+        </li>
+        <li>
               <Link  onClick={logout} to="#!">
                 <i className="fas fa-sign-out-alt"></i>{' '}
                 <span className="hide-sm">Logout</span>
               </Link>
-          </li>
+        </li>
     </ul>
   );
 
@@ -37,7 +50,7 @@ const Navbar = ({auth:{ isAuthenticated, loading}, logout }) => {
     return (
         <nav className="navbar bg-dark">
         <h1>
-          <Link to="/"><i className="fas fa-code"></i> DevNetwork <i className="fas fa-network-wired"></i></Link>
+          <Link to="/">DevWeb <i className="fas fa-network-wired"></i></Link>
         </h1>
         { !loading && (<Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>) }
       </nav>

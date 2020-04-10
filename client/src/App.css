@@ -226,7 +226,7 @@ img {
 
 /* Overlay */
 .dark-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   position: absolute;
   top: 0;
   left: 0;
@@ -329,6 +329,10 @@ button {
 .navbar .welcome span {
   margin-right: 0.6rem;
 } 
+.nav-user-image {
+  max-width: 30px;
+  max-height: 30px;
+}
 
 /* Landing Page */
 .landing {
@@ -480,6 +484,7 @@ button {
   padding: 0.1rem 0.2rem;
   border-radius: 5px;
   font-size: 0.8rem;
+  margin-left: 0.3em;
 }
 
 .post .post-date {
@@ -487,7 +492,10 @@ button {
   font-size: 0.8rem;
   margin-bottom: 0.5rem;
 }
-
+.like-btn > span,
+.dlike-btn > span {
+  margin-left: 0.3em ;
+}
 /* Mobile Styles */
 @media (max-width: 700px) {
   .container {
@@ -521,7 +529,7 @@ button {
     text-align: center;
     justify-content: center;
   }
-
+ 
   .navbar h1 {
     margin-bottom: 1rem;
   }

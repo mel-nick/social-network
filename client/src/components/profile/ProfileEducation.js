@@ -1,9 +1,8 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
 import Moment from 'react-moment'
 
 const ProfileEducation = ({education:{
-    school, degree, fieldofstudy, from, to, current, description 
+    school, degree, fieldofstudy, from, to, description 
 }
 }) => {
     return (
@@ -25,8 +24,5 @@ const ProfileEducation = ({education:{
     )
 }
 
-// ProfileEducation.propTypes = {
-//     experience:PropTypes.array.isRequired
-// }
 
 export default ProfileEducation
