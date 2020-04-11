@@ -18,13 +18,12 @@ app.use('/api/profile', require('./routes/api/profile'))
 app.use('/api/posts', require('./routes/api/posts'))
 
 //serve statisc assets
-// Serve static files from the React app
 app.use(express.static(path.join(__dirname, "/client/build")));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
   });
-  
+
 // Mongoose connection
 const db = mongoose.connection;
 
