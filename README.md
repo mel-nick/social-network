@@ -1,5 +1,5 @@
-# social-network
-social network MERN stack
+# Mini Social Network
+Fully responsive social network app. </br>
 
 Project techonolgy stack:
 - `backend`: node.js, express, mongoDB, JWT
