@@ -5,7 +5,7 @@ Project techonolgy stack:
 - `backend`: node.js, express, mongoDB, JWT
 - `frontend`: React (Hooks), Redux, Bootstrap(custom grid and assets), cssGrid
 
-Link on working project: https://devs-social-app.herokuapp.com
+Link on demo: https://devs-social-app.herokuapp.com
 
 1. In root forder run  `npm install`
 
